@@ -21,9 +21,10 @@ return array(
 		/**
 		 * Facebook
 		 */
-        'Facebook' => array(
+        'Google' => array(
             'client_id'     => '',
             'client_secret' => '',
+            'redirect_url'	=> '',
             'scope'         => array(),
         ),		
 

@@ -1,15 +1,15 @@
 <?php 
 /**
- * @author     Dariusz Prząda <artdarek@gmail.com>
+ * @author     Heng LikWee <edisonthk@gmail.com>
  * @copyright  Copyright (c) 2013
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 
-namespace Artdarek\OAuth\Facade;
+namespace Edisonthk\GoogleOAuth\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
-class OAuth extends Facade 
+class GoogleOAuth extends Facade 
 {
 
     /**
@@ -17,6 +17,6 @@ class OAuth extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'oauth'; }
+    protected static function getFacadeAccessor() { return 'google-oauth'; }
 
 }

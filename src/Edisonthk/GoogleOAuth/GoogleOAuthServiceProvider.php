@@ -1,15 +1,15 @@
 <?php 
 /**
- * @author     Dariusz Prząda <artdarek@gmail.com>
+ * @author     Heng LikWee <edisonthk@gmail.com>
  * @copyright  Copyright (c) 2013
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 
-namespace Artdarek\OAuth;
+namespace Edisonthk\GoogleOAuth;
 
 use Illuminate\Support\ServiceProvider;
 
-class OAuthServiceProvider extends ServiceProvider 
+class GoogleOAuthServiceProvider extends ServiceProvider 
 {
 
     /**
@@ -26,7 +26,7 @@ class OAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('artdarek/oauth-4-laravel');
+        $this->package('edisonthk/google-oauth');
     }
 
     /**
@@ -37,10 +37,10 @@ class OAuthServiceProvider extends ServiceProvider
     public function register()
     {
 	    // Register 'oauth'
-		    $this->app['oauth'] = $this->app->share(function($app)
+		    $this->app['google-oauth'] = $this->app->share(function($app)
 		    {
                 // create oAuth instance
-                	$oauth = new OAuth();
+                	$oauth = new GoogleOAuth();
         		// return oAuth instance
 		        	return $oauth;
 		    });
