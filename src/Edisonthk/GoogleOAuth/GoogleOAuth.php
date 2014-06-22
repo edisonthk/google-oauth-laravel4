@@ -19,9 +19,16 @@ class GoogleOAuth extends OAuth
 		return parent::consumer($service , $url, $scope);
 	}
 
+	public function getAuthorizationUri()
+	{
+		$googleService = $this->consumer();
+		return $googleService->getAuthorizationUri();
+	}
+
 	public function logout()
 	{
 		$storage = new Session();
+		$storage->clearAllTokens();
 		$storage->clearAllAuthorizationStates();
 	}
 

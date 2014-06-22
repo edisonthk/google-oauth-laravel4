@@ -1,6 +1,7 @@
 {
-    "name": "edisonthk/google-oauth",
-    "description": "",
+    "name": "edisonthk/google-oauth-laravel4",
+    "description": "Optimize artdarek/oauth-4-laravel with Google OAuth 2.0 for laravel 4",
+    "license": "MIT",
     "authors": [
         {
             "name": "Heng LikWee",
@@ -8,13 +9,12 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.3.0",
         "lusitanian/oauth": "~0.3"
     },
     "require-dev": {
         "illuminate/support": "4.2.*"
     },
-    "require-all": true,
     "autoload": {
         "psr-0": {
             "Edisonthk\\GoogleOAuth": "src/"
