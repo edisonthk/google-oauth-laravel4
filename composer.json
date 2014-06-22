@@ -4,6 +4,7 @@
     "license": "MIT",
     "keywords": ["OAuth", "Lusitanian", "laravel", "php","google"],
     "homepage": "https://github.com/edisonthk/google-oauth-laravel4",
+    "version": "1.0.5",
     "authors": [
         {
             "name": "Heng LikWee",
