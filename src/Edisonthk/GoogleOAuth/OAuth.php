@@ -70,21 +70,21 @@ class OAuth
     public function setConfig( $service )
     {
         // if config/google-oauth.php exists use this one
-        if ( Config::get('google-oauth.consumers') != null ) {
+        if ( Config::get('google-oauth-laravel4.consumers') != null ) {
 
-            $this->_storage_name = Config::get('google-oauth.storage', 'Session');
-            $this->_client_id = Config::get("google-oauth.consumers.$service.client_id");
-            $this->_client_secret = Config::get("google-oauth.consumers.$service.client_secret");
-            $this->_scope = Config::get("google-oauth.consumers.$service.scope", array() );
-            $this->_redirect_url = Config::get("google-oauth.consumers.$service.redirect_url");
+            $this->_storage_name = Config::get('google-oauth-laravel4.storage', 'Session');
+            $this->_client_id = Config::get("google-oauth-laravel4.consumers.$service.client_id");
+            $this->_client_secret = Config::get("google-oauth-laravel4.consumers.$service.client_secret");
+            $this->_scope = Config::get("google-oauth-laravel4.consumers.$service.scope", array() );
+            $this->_redirect_url = Config::get("google-oauth-laravel4.consumers.$service.redirect_url");
 
         // esle try to find config in packages configs
         } else {
-            $this->_storage_name = Config::get('google-oauth::storage', 'Session');
-            $this->_client_id = Config::get("google-oauth::consumers.$service.client_id");
-            $this->_client_secret = Config::get("google-oauth::consumers.$service.client_secret");
-            $this->_scope = Config::get("google-oauth::consumers.$service.scope", array() );
-            $this->_redirect_url = Config::get("google-oauth::consumers.$service.redirect_url");
+            $this->_storage_name = Config::get('google-oauth-laravel4::storage', 'Session');
+            $this->_client_id = Config::get("google-oauth-laravel4::consumers.$service.client_id");
+            $this->_client_secret = Config::get("google-oauth-laravel4::consumers.$service.client_secret");
+            $this->_scope = Config::get("google-oauth-laravel4::consumers.$service.scope", array() );
+            $this->_redirect_url = Config::get("google-oauth-laravel4::consumers.$service.redirect_url");
         }
 
     }

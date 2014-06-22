@@ -26,7 +26,7 @@ class GoogleOAuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('edisonthk/google-oauth');
+        $this->package('edisonthk/google-oauth-laravel4');
     }
 
     /**

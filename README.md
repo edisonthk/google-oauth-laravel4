@@ -21,6 +21,21 @@ then, install it by
 composer update
 ```
 
+After finish installed, import service provider and alias in app/config/app.php
+
+```
+'providers' => array(
+	'Edisonthk\GoogleOAuth\GoogleOAuthServiceProvider',
+)
+
+ :
+ :
+
+'aliases' => array(
+	'GoogleOAuth'	=> 'Edisonthk\GoogleOAuth\Facade\GoogleOAuth',
+)
+
+```
 
 # Configuration & Credentials
 Get your client_secret and client_id from Google Developers Console. Then, configure it with laravel. There are 2 options you can configure with it.
@@ -29,8 +44,11 @@ Get your client_secret and client_id from Google Developers Console. Then, confi
 Create config file by artisan command.
 
 ```
-$ php artisan config:publish edisonthk/google-oauth
+$ php artisan config:publish edisonthk/google-oauth-laravel4
 ```
+
+Then, config file will be generated at app/config/packages/edisonthk/google-oauth-laravel4/config.php. Fill it in with your client_secret, cliend_id and redirect_url.
+
 
 ### Option 2:
 Create a config file called google-oauth.php in app/config directory. Then add following code and fill in your client_secret, cliend_id and redirect_url.
