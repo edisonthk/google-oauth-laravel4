@@ -7,6 +7,21 @@ which provides oAuth 2.0 support in PHP 5.3+ for laravel 4.
  
 # Installation
 
+This package is available in packagist.org. You can install it by adding following in composer.json
+
+```
+"require": {
+    "edisonthk/google-oauth-laravel4": "dev-master"
+},
+```
+
+then, install it by 
+
+```
+composer update
+```
+
+
 # Configuration & Credentials
 Get your client_secret and client_id from Google Developers Console. Then, configure it with laravel. There are 2 options you can configure with it.
 
