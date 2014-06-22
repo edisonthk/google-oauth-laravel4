@@ -2,6 +2,8 @@
     "name": "edisonthk/google-oauth-laravel4",
     "description": "Optimize artdarek/oauth-4-laravel with Google OAuth 2.0 for laravel 4",
     "license": "MIT",
+    "keywords": ["OAuth", "Lusitanian", "laravel", "php","google"],
+    "homepage": "https://github.com/edisonthk/google-oauth-laravel4",
     "authors": [
         {
             "name": "Heng LikWee",
