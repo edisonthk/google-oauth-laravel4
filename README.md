@@ -47,11 +47,11 @@ Create config file by artisan command.
 $ php artisan config:publish edisonthk/google-oauth-laravel4
 ```
 
-Then, config file will be generated at app/config/packages/edisonthk/google-oauth-laravel4/config.php. Fill it in with your client_secret, cliend_id and redirect_url.
+Then, config file will be generated at app/config/packages/edisonthk/google-oauth-laravel4/config.php. Fill it in with your client_secret, cliend_id, redirect_url and scope.
 
 
 ### Option 2:
-Create a config file called google-oauth.php in app/config directory. Then add following code and fill in your client_secret, cliend_id and redirect_url.
+Create a config file called google-oauth-laravel4.php in app/config directory. Then add following code and fill in your client_secret, cliend_id and redirect_url.
 
 ```
 <?php 
@@ -91,6 +91,18 @@ return array(
 ```
 
 # Sample code
+
+On configuration
+
+```
+'Google' => array(
+    'client_id'     => 'Your Google client ID',
+    'client_secret' => 'Your Google Client Secret',
+    'redirect_url' 	=> 'http://www.example.com/success'
+    'scope'         => array('userinfo_email', 'userinfo_profile'),
+),
+```
+
 On app/routes.php
 
 ```
