@@ -8,6 +8,9 @@
 namespace Edisonthk\GoogleOAuth;
 
 use OAuth\Common\Storage\Session;
+use OAuth\Common\Token\Exception\ExpiredTokenException;
+use OAuth\Common\Token\TokenInterface;
+use OAuth\Common\Storage\Exception\TokenNotFoundException; 
 
 class GoogleOAuth extends OAuth
 {
@@ -23,7 +26,7 @@ class GoogleOAuth extends OAuth
 	{
 		$googleService = $this->consumer();
 
-		if($this->_access_type){
+		if(!empty($this->_access_type)){
 
 			$parameter["access_type"] = $this->_access_type;
 
@@ -40,12 +43,14 @@ class GoogleOAuth extends OAuth
 		$storage->clearAllAuthorizationStates();
 	}
 
+
 	public function hasAuthorized()
 	{
 		return $this->hasAccessToken() && !$this->isAccessTokenExpired();
 	}
 
-	public function hasAccessToken(){
+	public function hasAccessToken()
+	{
 		$storage = new Session();
 
 		return $storage->hasAccessToken(self::_SERVICE);
@@ -58,15 +63,17 @@ class GoogleOAuth extends OAuth
 
 			$token = $storage->retrieveAccessToken(self::_SERVICE);
 
-			if(is_null($token)){
-				return true;
-			}
+		if(is_null($token)){
+			return true;
+		}
 
-			return ($token->getEndOfLife() !== TokenInterface::EOL_NEVER_EXPIRES
-				&& $token->getEndOfLife() !== TokenInterface::EOL_UNKNOWN
-				&& time() > $token->getEndOfLife()
-				);
+		return ($token->getEndOfLife() !== TokenInterface::EOL_NEVER_EXPIRES
+            && $token->getEndOfLife() !== TokenInterface::EOL_UNKNOWN
+            && time() > $token->getEndOfLife()
+        );
 
+		}catch(TokenNotFoundException $e){
+			return true;
 		}catch(ExpiredTokenException $e){
 			return true;
 		}
