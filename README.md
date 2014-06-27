@@ -75,7 +75,7 @@ return array(
 	'consumers' => array(
 
 		/**
-		 * Facebook
+		 * Google
 		 */
         'Google' => array(
             'client_id'     => '',
