@@ -63,14 +63,14 @@ class GoogleOAuth extends OAuth
 
 			$token = $storage->retrieveAccessToken(self::_SERVICE);
 
-		if(is_null($token)){
-			return true;
-		}
+			if(is_null($token)){
+				return true;
+			}
 
-		return ($token->getEndOfLife() !== TokenInterface::EOL_NEVER_EXPIRES
-            && $token->getEndOfLife() !== TokenInterface::EOL_UNKNOWN
-            && time() > $token->getEndOfLife()
-        );
+			return ($token->getEndOfLife() !== TokenInterface::EOL_NEVER_EXPIRES
+	            && $token->getEndOfLife() !== TokenInterface::EOL_UNKNOWN
+	            && time() > $token->getEndOfLife()
+	        );
 
 		}catch(TokenNotFoundException $e){
 			return true;
