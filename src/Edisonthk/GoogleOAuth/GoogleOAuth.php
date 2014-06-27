@@ -19,10 +19,18 @@ class GoogleOAuth extends OAuth
 		return parent::consumer($service , $url, $scope);
 	}
 
-	public function getAuthorizationUri()
+	public function getAuthorizationUri($parameter = array())
 	{
 		$googleService = $this->consumer();
-		return $googleService->getAuthorizationUri();
+
+		if($this->_access_type){
+
+			$parameter["access_type"] = $this->_access_type;
+
+			return $googleService->getAuthorizationUri($parameter);
+		}
+		
+		return $googleService->getAuthorizationUri($parameter);
 	}
 
 	public function logout()
@@ -34,8 +42,37 @@ class GoogleOAuth extends OAuth
 
 	public function hasAuthorized()
 	{
+		return $this->hasAccessToken() && !$this->isAccessTokenExpired();
+	}
+
+	public function hasAccessToken(){
 		$storage = new Session();
+
 		return $storage->hasAccessToken(self::_SERVICE);
+	}
+
+	public function isAccessTokenExpired()
+	{
+		$storage = new Session();
+		try{
+
+			$token = $storage->retrieveAccessToken(self::_SERVICE);
+
+			if(is_null($token)){
+				return true;
+			}
+
+			return ($token->getEndOfLife() !== TokenInterface::EOL_NEVER_EXPIRES
+				&& $token->getEndOfLife() !== TokenInterface::EOL_UNKNOWN
+				&& time() > $token->getEndOfLife()
+				);
+
+		}catch(ExpiredTokenException $e){
+			return true;
+		}
+
+		return false;
+		
 	}
 
 }

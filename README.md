@@ -23,7 +23,7 @@ composer update
 
 After finish installed, import service provider and alias in app/config/app.php
 
-```
+```php
 'providers' => array(
 	'Edisonthk\GoogleOAuth\GoogleOAuthServiceProvider',
 )
@@ -53,7 +53,7 @@ Then, config file will be generated at app/config/packages/edisonthk/google-oaut
 ### Option 2:
 Create a config file called google-oauth-laravel4.php in app/config directory. Then add following code and fill in your client_secret, cliend_id and redirect_url.
 
-```
+```php
 <?php 
 
 return array( 

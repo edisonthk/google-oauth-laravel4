@@ -45,6 +45,7 @@ class OAuth
     private $_scope = array();
 
     private $_redirect_url;
+    protected $_access_type;
 
     /**
      * Constructor
@@ -77,6 +78,7 @@ class OAuth
             $this->_client_secret = Config::get("google-oauth-laravel4.consumers.$service.client_secret");
             $this->_scope = Config::get("google-oauth-laravel4.consumers.$service.scope", array() );
             $this->_redirect_url = Config::get("google-oauth-laravel4.consumers.$service.redirect_url");
+            $this->_access_type = Config::get("google-oauth-laravel4.consumers.$service.access_type");
 
         // esle try to find config in packages configs
         } else {
@@ -85,6 +87,7 @@ class OAuth
             $this->_client_secret = Config::get("google-oauth-laravel4::consumers.$service.client_secret");
             $this->_scope = Config::get("google-oauth-laravel4::consumers.$service.scope", array() );
             $this->_redirect_url = Config::get("google-oauth-laravel4::consumers.$service.redirect_url");
+            $this->_access_type = Config::get("google-oauth-laravel4::consumers.$service.access_type");
         }
 
     }
